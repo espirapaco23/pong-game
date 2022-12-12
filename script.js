@@ -69,11 +69,11 @@ class Ball {
       bottomSide >= platform2.position.y &&
       topSide <= platform2.position.y + platform2.height
     ) {
-      this.velocity.x = -this.velocity.x;
+      this.velocity.y = -this.velocity.x;
     }
 
     if (
-      this.position.y + this.height + this.velocity.y >= canvas.width ||
+      this.position.y + this.height + this.velocity.y >= canvas.height ||
       this.position.y + this.velocity.y <= 0
     ) {
       this.velocity.y = -this.velocity.y;
@@ -121,20 +121,15 @@ addEventListener("keydown", (e) => {
   const speed = 4;
   switch (e.key) {
     case "w":
-      //go u
       platform1.velocity.y = -speed;
       break;
     case "s":
-      //go d
       platform1.velocity.y = speed;
       break;
-
     case "ArrowUp":
-      //go u
       platform2.velocity.y = -speed;
       break;
     case "ArrowDown":
-      //go d
       platform2.velocity.y = speed;
       break;
   }
